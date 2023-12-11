@@ -10,3 +10,57 @@
     <p>my name is girijdhfdjuhfliusdjgfkydsgc</p>
 </body>
 </html>
+
+import React, {useState, useEffect} from 'react';
+
+export default function ProfilePage() {
+  const [userName, setUserName] = useState('Jhon');
+
+  // This useEffect will run when userName changes
+  useEffect(() => {
+    document.title = `Welcome, ${userName}!`; //update the age title 
+    return() =>{
+      document.title = 'My website'; // Reset the title when the user leaves
+
+    };
+  }, [userName]);
+
+  return (
+    <div>
+      <h1>Welcome, {userName}!</h1>
+      <button onClick = {() => setUserName('Alice')}>Change Name</button>
+
+      </div>
+  );
+  
+}
+
+
+
+
+
+import React,{Component} from "react"
+class counter extends Component{
+    constructor(){
+        super();
+        this.state={
+            count:0
+        }}
+        Increment=()=>{
+         this.setState({count:this.state.count+1})
+        }
+        decrement=()=>{
+            this.setState({count:this.state.count-1})
+           }
+        render(){
+            return(
+                <div>
+                    <h1>Counter:{this.state.count}</h1>
+                    <button onClick={this.Increment}>Increment</button>
+                    <button onClick={this.decrement}>decrement</button>
+                </div>
+
+            )
+        }
+    }
+export default counter;
